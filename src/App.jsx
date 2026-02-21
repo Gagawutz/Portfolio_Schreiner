@@ -1,124 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Mail, Phone, MapPin, X, ChevronLeft, ChevronRight, PlayCircle, FileText, Download } from 'lucide-react';
+// HIER IST DER NEUE IMPORT:
+import { personalInfo, projects } from './data';
 
 const Portfolio = () => {
-  
-  // ==========================================
-  // TEIL 2: HIER TEXTE UND PERSÖNLICHE DATEN ÄNDERN
-  // ==========================================
-  const personalInfo = {
-    name: "Gabriel Wiedemann Utz", 
-    title: "Bewerbung zur Ausbildung als Schreiner",
-    intro: (
-      <>
-        Wenn sie das hier lesen, dann war ich wahrscheinlich heute bei ihnen im Betrieb. Danke, dass sie sich die Zeit genommen haben!
-        <br />
-        Ich würde gerne in ihrem Betrieb zum Ausbildungsjahr 2026 eine Ausbildung beginnen und wenn möglich im Februar oder März ein Praktikum absolvieren.
-        <br /><br />
-        Handwerklich begeistert war ich schon immer, egal ob in der Grundschule im WTG Unterricht, bei Renovierungsarbeiten in der Bruchbude meines Vaters oder in eigenen kleinen Projekten.
-        <br /><br />
-        Es ist nichts besonderes aber es hat mir viel Spaß gemacht und war mit einer Erfüllung und Selbstwirksamkeit verbunden, die mir bisher keine Aufgabe in meinem Studium, verschiedenen Praktika und Werkstudentenjobs geben konnte.
-        Und es hat mir gezeigt wie unglaublich viel ich hier lernen kann!
-        <br /><br />
-        Ich bin jetzt 25 und fühle mich an manchen Tagen schon zu alt um das hier nochmal zu versuchen. Aber seit knapp 1 1/2 Jahren geht mir der Gedanke eine Ausbildung als Schreiner machen zu wollen nicht mehr aus dem Kopf. Und wenn ich es jetzt nicht mache, dann wahrscheinlich nie mehr.
-        <br /><br />
-        Ich will Schreiner werden um Ideen, die in meinem Kopf entstehen (oder in dem anderer Leute) Wirklichkeit werden lassen zu können. Dabei mein Bestes geben und mich über das Ergebnis freuen können!
-      </>
-    ),
-    email: "g.wiedemannutz@proton.me",
-    phone: "015204918995",
-    location: "München, Deutschland",
-    profileImage: "/profilbild.jpeg",
-    
-    cvPdf: "/01.09.2025_DE.pdf" 
-  };
-
-  // ==========================================
-  // TEIL 1: HIER PROJEKTE UND BILDER EINFÜGEN
-  // ==========================================
-  const projects = [
-     {
-      id: 1,
-      title: "Schublade mit Asanoha Kumiko",
-      category: "Eigenprojekt",
-      description: (
-        <>
-          Über die Jahre habe ich verschiedene kleine Modifikationen an diesem alten Tisch durchgeführt. Jetzt war die Schublade dran.
-          <br /><br />
-          Das Kumiko hat mich vor einige Herausforderunen gestellt! Ich freue mich aber schon auf das Nächste.
-          <br /><br />
-          Beim Anfertigen der Deckel für die einzelnen Fächer ist mir leider ein gravierender Fehler unterlaufen, da ich beim Verleimen der Bretter nicht auf die Wuchrichtung der Jahresringe geachtet habe. Auch die unterstützenden Querverstrebungen konnten leider nicht verhindern, dass sich das Holz gebogen hat. 
-        </>     
-      ),
-      images: [
-        "/Schublade_prefin.jpeg",
-        "/Kumiko_fenster.jpeg",
-        "/Kumiko_1.jpeg",
-        "/Kumiko_2.jpeg"
-      ]
-    },
-    {
-      id: 1,
-      title: "Umgebauter Beistelltisch",
-      category: "Eigenprojekt",
-      description: (
-        <>
-          Die Idee für den Tisch kam mir durch die getrocknete Irisblume, die ich aus Portugal mitgebracht habe.
-          <br /><br />
-          Sie ruht auf einem, mit Magneten befestigten Holzbrett, sodass man theoretisch verschiedene dekorelemente unter der Plexiglasscheibe platzieren kann.
-          <br /><br />
-          Verbesserungswürdig sind hier sicher einige Dinge aber was mir immer wieder ins Auge fällt ist die unsaubere Passung des Holzrings auf dem die Plexiglasscheibe ruht.
-        </>     
-      ),
-      images: [
-        "/Tisch_donedone.jpeg",
-        "/Tisch_Pre.jpeg",
-        "/Tisch_glueup.jpeg",
-        "/Tisch_done.jpeg",
-        "/Tisch_donedoneclose.jpeg"
-      ]
-    },
-    {
-      id: 2,
-      title: "Regal & Deckplatte",
-      category: "Eigenprojekt",
-      description:  (
-        <>
-          Wichtiger und vielleicht offensichtlicher Hinweis: Die Schubkästen habe ich nicht selbst gemacht!
-          <br /><br />
-          Um das Hirnholz der Regalbretter zu verstecken habe ich jeweils eine kleine Holzleiste an die Enden der Bretter geleimt.
-          Das mittlere Brett ist außerdem von hinten in der Nut verdübelt.
-          <br /><br />
-          Die dünnen, asymmetrisch platzierten Holzstehlen waren eine nette Spielerei aber sind leider nicht ganz senkrecht platziert. Im nachhinein hätte ich einen der beiden gut hinter der Wandfließe verstecken können.
-        </>     
-      ),
-      images: [
-        "/Schrank_gesamt.jpeg",
-        "/Regal_Bretter.jpeg",
-        "/Regal_dryfit_front.jpeg",
-        "/Regal_montiert.jpeg",
-        "/Platte_Prozess – Mit Clipchamp erstellt.mp4"
-      ]
-    },
-    {
-      id: 3,
-      title: "Deko-Kamm",
-      category: "Eigenprojekt",
-      description: (
-        <>
-          Diesen Kamm habe ich für meine Freundin gemacht. Er ist der brasilianischen Landkarte nachempfunden.
-          <br /><br />
-          Aus dem Entstehungsprozess habe ich leider nicht viel Bildmaterial aber ich habe einige Versuche gebraucht um die sowieso schon nicht allzu filigranen Zinken auszusägen.
-          Das war viel Frust mit dabei aber am Ende finde ich ihn eigentlich sehr schön.
-        </>     
-      ),
-      images: [
-        "/Kamm_diggydidone.JPG",
-        "/Kamm_rough.jpeg"
-      ]
-    },
-  ];
-
   // --- STATE MANAGEMENT ---
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -165,11 +50,7 @@ const Portfolio = () => {
   };
 
   // --- UI COMPONENTS ---
-
-  // Helper für Kontaktinformationen (wiederverwendbar)
   const ContactInfoList = () => (
-    // ABSTAND ÄNDERN (2): 'gap-4' bestimmt den Abstand ZWISCHEN E-Mail, Telefon und Ort
-    // 'mt-2' ist ein kleiner Zusatzabstand nach oben zur Trennlinie
     <div className="flex flex-col gap-1 mt-2 w-full">
       <div className="flex items-center gap-1 group">
         <div className="p-2 bg-stone-100 rounded-full text-stone-600 group-hover:text-blue-900 group-hover:bg-blue-50 transition-colors">
@@ -189,22 +70,16 @@ const Portfolio = () => {
         </a>
       </div>
 
-      {/* UPDATE: Hier wurde 'group' hinzugefügt, damit Hover funktioniert */}
       <div className="flex items-center gap-3 group">
-        {/* UPDATE: Hover-Klassen hinzugefügt */}
         <div className="p-2 bg-stone-100 rounded-full text-stone-600 group-hover:text-blue-900 group-hover:bg-blue-50 transition-colors">
           <MapPin size={18} />
         </div>
-        {/* UPDATE: Textfarbe ändert sich jetzt auch bei Hover */}
         <span className="text-stone-700 font-medium hover:text-blue-900 transition-colors text-sm">{personalInfo.location}</span>
       </div>
     </div>
   );
 
-  // Helper Component für Bild + Button + Kontakt
   const ProfileMedia = ({ mobile }) => (
-    // ABSTAND ÄNDERN (1): 'gap-6' bestimmt den Abstand zwischen Bild, Button und Kontaktbereich
-    // Ändern Sie 'gap-6' zu 'gap-8' oder 'gap-10' für mehr Platz
     <div className={`${mobile ? 'flex md:hidden flex-col items-center gap-6 my-8' : 'hidden md:flex flex-col items-start mt-24 gap-6'}`}>
       <div className="relative w-56 h-56 md:w-72 md:h-72">
         <div className="absolute inset-0 bg-blue-200 rounded-2xl blur-xl opacity-30 transform -rotate-3"></div>
@@ -223,8 +98,6 @@ const Portfolio = () => {
         Lebenslauf öffnen
       </button>
 
-      {/* Kontaktinformationen Bereich */}
-      {/* 'pt-4' ist der Innenabstand nach oben zur Trennlinie */}
       <div className="w-56 md:w-72 pt-4 border-t border-stone-100">
         <ContactInfoList />
       </div>
@@ -232,18 +105,10 @@ const Portfolio = () => {
   );
 
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-800 font-sans selection:bg-blue-200">
-      
-      {/* HEADER / HERO SECTION */}
-      {/* UPDATE: 
-          - 'min-h-[85vh]': Der Header ist jetzt mindestens 85% der Bildschirmhöhe hoch.
-          - 'flex items-center': Das zentriert den Inhalt vertikal.
-      */}
+    <div className="min-h-screen bg-stone-50 text-stone-800 font-sans selection:bg-blue-200 flex flex-col w-full">
       <header className="relative bg-white shadow-sm min-h-[85vh] flex items-center">
-        {/* UPDATE: 'max-w-7xl' statt '6xl' für mehr Breite auf großen Screens */}
-        <div className="w-full max-w-7xl mx-auto px-6 py-12 md:py-20 flex flex-col md:flex-row items-stretch gap-8 md:gap-12">
+        <div className="w-full max-w-screen-2xl mx-auto px-6 py-12 md:py-20 flex flex-col md:flex-row items-stretch gap-8 md:gap-12">
           
-          {/* 1. Text Bereich (LINKS) */}
           <div className="flex-1 space-y-5 text-center md:text-left order-1 flex flex-col justify-start">
             <div>
               <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-stone-900 mb-2">
@@ -254,19 +119,15 @@ const Portfolio = () => {
               </p>
             </div>
 
-            {/* MOBILE VERSION: Bild + Button + Kontakt kommen HIER */}
             <ProfileMedia mobile={true} />
 
-            {/* UPDATE: 'lg:max-w-xl' erlaubt dem Text auf großen Screens etwas breiter zu laufen */}
             <p className="text-stone-600 leading-relaxed max-w-lg lg:max-w-xl mx-auto md:mx-0">
               {personalInfo.intro}
             </p>
           </div>
 
-          {/* 2. Vertikaler Strich (Mitte - Nur Desktop) */}
           <div className="hidden md:block w-0.5 bg-blue-900 mx-2 order-2 mt-24 mb-2 opacity-80 rounded-full"></div>
 
-          {/* 3. Bild Bereich (RECHTS - Nur Desktop) */}
           <div className="flex-shrink-0 order-3">
              <ProfileMedia mobile={false} />
           </div>
@@ -274,9 +135,7 @@ const Portfolio = () => {
         </div>
       </header>
 
-      {/* PROJEKTE GRID */}
-      {/* UPDATE: Auch hier 'max-w-7xl' für mehr Breite */}
-      <main className="max-w-7xl mx-auto px-6 py-16">
+      <main className="w-full max-w-screen-2xl mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold mb-12 text-center md:text-left border-l-4 border-blue-900 pl-4">
           Ausgewählte Arbeiten
         </h2>
@@ -344,13 +203,11 @@ const Portfolio = () => {
         </div>
       </main>
 
-      {/* FOOTER */}
       <footer className="bg-stone-900 text-stone-400 py-12 text-center">
         <p className="mb-2">Digitale Bewerbungsmappe</p>
         <p className="text-stone-600 text-sm">&copy; {new Date().getFullYear()} {personalInfo.name}</p>
       </footer>
 
-      {/* MODAL / LIGHTBOX (Für Projekte) */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
           <div 
@@ -435,7 +292,6 @@ const Portfolio = () => {
         </div>
       )}
 
-      {/* MODAL / OVERLAY (Für Lebenslauf PDF) */}
       {showCV && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
           <div 
@@ -444,7 +300,6 @@ const Portfolio = () => {
           ></div>
 
           <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-5xl h-[90vh] flex flex-col overflow-hidden animate-in fade-in zoom-in duration-200">
-            {/* Header des CV Modals */}
             <div className="flex justify-between items-center p-4 border-b border-stone-200 bg-white z-10">
               <h3 className="text-lg font-bold text-stone-800">Lebenslauf</h3>
               <div className="flex gap-2">
@@ -464,7 +319,6 @@ const Portfolio = () => {
               </div>
             </div>
 
-            {/* PDF Inhalt */}
             <div className="flex-1 bg-stone-100 p-0 md:p-4 overflow-hidden">
               <iframe 
                 src={personalInfo.cvPdf} 
