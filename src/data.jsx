@@ -8,6 +8,7 @@ export const personalInfo = {
   title: "Bewerbung zur Ausbildung als Schreiner",
   intro: (
     <>
+      DAS IST EIN TEST
       Wenn sie das hier lesen, dann war ich wahrscheinlich heute bei ihnen im Betrieb. Danke, dass sie sich die Zeit genommen haben!
       <br />
       Ich würde gerne in ihrem Betrieb zum Ausbildungsjahr 2026 eine Ausbildung beginnen und wenn möglich im Februar oder März ein Praktikum absolvieren.
